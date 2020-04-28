@@ -6,7 +6,7 @@ import { createMessage } from '../actions/index';
 class MessageForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: '' };
   }
 
   componentDidMount() {
@@ -20,14 +20,14 @@ class MessageForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createMessage(this.props.selectedChannel, this.state.value);
-    this.setState({ value: "" }); // Reset message input
+    this.setState({ value: '' });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="channel-editor">
         <input
-          ref={(input) => { this.messageBox = input; }}
+          ref={input => this.messageBox = input}
           type="text"
           className="form-control"
           autoComplete="off"
@@ -44,11 +44,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createMessage }, dispatch);
 }
 
-function mapStateToProps(state) {
-  return {
-    currentUser: state.currentUser,
-    selectedChannel: state.selectedChannel
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
+export default connect(null, mapDispatchToProps)(MessageForm);

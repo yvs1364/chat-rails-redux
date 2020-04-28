@@ -16,6 +16,6 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def set_chan
-    @channel = Channel.find_by(params[:name])
+    @channel = Channel.find_by(name: params[:channel_id])
   end
 end

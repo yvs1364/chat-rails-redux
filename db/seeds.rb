@@ -15,10 +15,13 @@ puts "everything is destroyed"
 chans = %w(general marseille react)
 
 channels = chans.map do |chan|
-  Channel.create(name: chan)
+  Channel.find_or_create_by(name: chan)
 end
 puts "#{channels.count} channels created"
 
+channels.each do |channel|
+  puts "- #{channel.id}: #{channel.name}"
+end
 
 yvs = User.create!(nickname: "yvs", email: "yvan@mail.com", password: "password")
 rosie = User.create!(nickname: "rosie", email: "rosie@mail.com", password: "password")

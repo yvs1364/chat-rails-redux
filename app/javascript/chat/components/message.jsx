@@ -1,15 +1,15 @@
 import React from 'react';
 import { emojify } from 'react-emojione';
 
-function strToRGB(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
+function strToRGB(str){
+  var hash = 0;
+  for (var i = 0; i < str.length; i++) {
      hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  const c = (hash & 0x00FFFFFF)
-    .toString(16)
-    .toUpperCase();
- return "#" + "00000".substring(0, 6 - c.length) + c;
+  var c = (hash & 0x00FFFFFF)
+      .toString(16)
+      .toUpperCase();
+  return "#" + "00000".substring(0, 6 - c.length) + c;
 }
 
 const Message = (props) => {
@@ -19,10 +19,10 @@ const Message = (props) => {
   return (
     <div className="message-container">
       <i className="author">
-        <span style={{color}}>{props.author}</span>
+        <span style={{ color }}>{props.author}</span>
         <small>{time}</small>
       </i>
-      <p>{content}</p>
+      <p >{content}</p>
     </div>
   );
 };
