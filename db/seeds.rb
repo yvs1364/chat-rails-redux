@@ -23,11 +23,13 @@ channels.each do |channel|
   puts "- #{channel.id}: #{channel.name}"
 end
 
-yvs = User.create!(nickname: "yvs", email: "yvan@mail.com", password: "password")
-rosie = User.create!(nickname: "rosie", email: "rosie@mail.com", password: "password")
+cartman = User.create!(nickname: "cartman".capitalize, email: "cartman@mail.com", password: "password")
+stan = User.create!(nickname: "stan".capitalize, email: "stan@mail.com", password: "password")
+kyle = User.create!(nickname: "kyle".capitalize, email: "kyle@mail.com", password: "password")
+kenny = User.create!(nickname: "kenny".capitalize, email: "kenny@mail.com", password: "password")
 puts "#{User.count} users created"
 
-30.times do
-  Message.create! user: [yvs, rosie].sample, channel: channels.sample, content: Faker::TvShows::SouthPark.quote
+35.times do
+  Message.create! user: [cartman, stan, kyle, kenny].sample, channel: channels.sample, content: Faker::TvShows::SouthPark.quote
 end
 puts "#{Message.count} messages created"
